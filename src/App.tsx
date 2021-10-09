@@ -2,6 +2,7 @@ import "./App.css";
 import Greets from "./components/Greets";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import Counter from "./components/state/Counter";
 import Login from "./components/state/Login";
 import User from "./components/state/User";
 import Status from "./components/Status";
@@ -31,6 +32,7 @@ function App() {
       <Status status="loading" />
       <Login />
       <User />
+      <Counter />
     </div>
   );
 }
