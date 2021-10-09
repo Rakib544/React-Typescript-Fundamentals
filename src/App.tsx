@@ -2,6 +2,8 @@ import "./App.css";
 import Greets from "./components/Greets";
 import Person from "./components/Person";
 import PersonList from "./components/PersonList";
+import Login from "./components/state/Login";
+import User from "./components/state/User";
 import Status from "./components/Status";
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
       <Person name={person} />
       <PersonList names={nameList} />
       <Status status="loading" />
+      <Login />
+      <User />
     </div>
   );
 }
