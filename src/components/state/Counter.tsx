@@ -4,10 +4,18 @@ type CounterState = {
   count: number;
 };
 
-type CounterAction = {
-  type: string;
+//  from line 7 to 17 is called discriminated union in typescript
+type UpdateAction = {
+  type: "increment" | "decrement";
   payload: number;
 };
+
+type ResetAction = {
+  type: "reset";
+};
+
+type CounterAction = UpdateAction | ResetAction;
+//  from line 7 to 17 is called discriminated union in typescript
 
 const initialState = { count: 0 };
 
@@ -17,6 +25,8 @@ function reducer(state: CounterState, action: CounterAction) {
       return { count: state.count + action.payload };
     case "decrement":
       return { count: state.count - action.payload };
+    case "reset":
+      return initialState;
     default:
       return state;
   }
@@ -34,6 +44,7 @@ const Counter = () => {
       <button onClick={() => dispatch({ type: "decrement", payload: 10 })}>
         Decrement 10{" "}
       </button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </div>
   );
 };
